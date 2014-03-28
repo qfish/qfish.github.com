@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <title>QFish&#39;s Blog</title>
+      <meta charset="utf-8">
+      <meta name="author" content="QFish">
+      <meta name="description" content="QFish is not a Fish named Q ~">  
+      <meta property="og:site_name" content="QFish&#39;s Blog"/>
+      <meta property="og:image" content="undefined"/>  
+      <meta name="HandheldFriendly" content="True" />
+      <meta name="MobileOptimized" content="320" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link href="http://const.qiniudn.com/assets/images/favicon.ico" rel="shortcut icon">
+      <link href="http://const.qiniudn.com/assets/css/style.css" rel="stylesheet">
+      
+      <link rel="alternate" type="application/rss+xml" title="QFish&#39;s Blog" href="/rss/">
+
+    </head>
+    
+    
+    <body class="home-template">
+      <nav id="nav" class="navbar navbar-fixed-top header-white navbar-inverse navbar-transparent" role="navigation">
+<!-- <nav id="nav" class="navbar navbar-fixed-top header-white navbar-transparent" role="navigation"> -->
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-main">
+            <ul class="nav navbar-nav navbar-right">
+            
+              <li><a href="/">首页</a></li>
+              <li><a href="/archives">归档</a></li>
+              <li><a href="/about">关于</a></li>
+              <li>
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="navbar-form" role="search">
+              <div class="form-group">
+                <input type="search" name="q" results="0" class="form-control navbar-search">
+                <input type="hidden" name="q" value="site:http://qfi.sh">
+              </div>
+            </form>
+              </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+      <header class="blog-header header-white header-overlay align-center align-middle"  style="background-image: url(http://const.qiniudn.com/assets/images/background/welcome.jpg)" >
+    <div class="header-inner">
+        <div class="container">
+            <a class="brand light" alt="QFish" href="/" role="banner" >              <img src="http://const.qiniudn.com/assets/images/lago.48.png" alt="Blog Logo" />
+            </a>
+            <h1 class="blog-title light">
+                QFish
+            </h1>
+            <h2 class="blog-description light bordered bordered-top">
+                QFish is not a Fish named Q ~
+            </h2>
+        </div>
+    </div>
+</header>
+      <div id="main" class="content" role="main">
+        <div class="container">
+        
+  <article id="post-bee-template-manual" class="article post row article-type-post" itemscope itemprop="blogPost">
+    
+    
+        <h2 class="post-title text-center super lighter article-title" itemprop="name">
+
+  
+      <a class="article-title" href="/2013/08/11/bee-template-manual/">Bee Template Manual</a>
+  
+
+</h2>
+    
+    <div class="post-info text-center bordered-top col-md-2">
+        <i class="fa fa-calendar"></i>
+<a href="/2013/08/11/bee-template-manual/" class="article-date">
+  <time class="post-time" datetime="2013-08-11T04:49:10.000Z" itemprop="datePublished">8月 11 / 2013</time>
+</a>
+        
+  <i class="fa fa-tags"></i><br/>
+  <a class="article-tag-link" href="/tags/BeeFramework/">BeeFramework</a> , <a class="article-tag-link" href="/tags/ios/">ios</a>
+
+    </div>
+    <div class="post-body bordered-bottom col-md-8" itemprop="articleBody">
+        
+      
+        <p>话说搞过iOS的都知道frame是怎么回事，算坐标这事总能让你疼到极致~   </p>
+<p>即使给<code>UIView</code>扩展那么几个<code>top</code>，<code>left</code>，<code>width</code>,<code>height</code>，… 属性,你依然摆脱不了<code>view.frame = CGrectMake(x,x,x,x);</code>的折磨。</p>
+<p>你在<code>superview</code>上<code>add</code>了一些<code>subview</code>，你不告诉这些小朋友们该站在哪里，他们就全部站在教室的一个角落(origin(0,0))，并且是一个小朋友踩在另外一个小朋友上面..。</p>
+<p>于是乎，问题就来了，为什么view和他的小伙伴们不能一个挨着一个，自觉的排列呢~</p>
+<p>Bee Template 其中的一个特性解决了这问题，为什么说是其中的一个特性呢? 因为Bee Template 还解决了通过<code>XML布局(解决View层)</code>随后之而来的问题，比如如何处理控件的事件，如何给view填充数据等等。</p>
+
+        
+        <p class="post-more-link">
+        <a href="/2013/08/11/bee-template-manual/#more" class="read-more">Read More</a>
+        </p>
+      
+    </div>
+    
+    
+    
+</article>
+
+
+        </div>
+      </div>
+      <footer id="footer"  class="text-center" style="background-image: url(http://const.qiniudn.com/assets/images/background/welcome.jpg)" >
+    <div class="container">
+        <ul class="social-icons">
+          
+                <li><a target="_blank" href="http://weibo.com/qfishx"><i class="fa fa-weibo fa-x"></i></a></li>
+                <li><a target="_blank" href="http://github.com/qfish"><i class="fa fa-github fa-x"></i></a></li>
+                <li><a target="_blank" href="http://dribbble.com/qfish"><i class="fa fa-dribbble fa-x"></i></a></li>
+                <li><a target="_blank" href="mailto:QFish.cn@gmail.com"><i class="fa fa-envelope fa-x"></i></a></li>
+          </ul>
+        <p class="copy-text">
+          All content copyright
+          <a href="/" target="_blank">QFish</a> &copy; 2013 &bull; All rights reserved.
+        </p>
+    </div>
+</footer>
+      
+<script src="http://const.qiniudn.com/assets/js/jquery/jquery.min.js"></script>
+<script src="http://const.qiniudn.com/assets/bootstrap/js/bootstrap.js"></script>
+<script src="http://const.qiniudn.com/assets/js/waypoints.min.js"></script>
+<script src="http://const.qiniudn.com/assets/js/script.js"></script>
+
+
+<style>#cnzz_stat_icon_ { display: none; }</style>
+<script type="text/javascript">
+  var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  document.write(unescape("%3Cspan id='cnzz_stat_icon_'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D' type='text/javascript'%3E%3C/script%3E"));
+</script>
+    </body>
+</html>

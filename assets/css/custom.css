@@ -1,0 +1,59 @@
+a.read-more {
+color: #9da2a6;
+font-size: 16px;
+line-height: 35px;
+padding-left: 20px;
+padding-right: 20px;
+border: 1px solid #bdc3c7 !important;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+display: inline-block;
+margin-top: 20px;
+}
+/*#nav.navbar-inverse {
+background-color: rgba(33, 33, 33, 0.67);
+border-color: #080808;
+}*/
+.post-body a[href] {
+border-bottom: 1px dashed #597369;
+}
+
+.form-group .navbar-search {
+  margin-left: 15px;
+  text-indent: 10px;
+  background-color: transparent;
+  color: #fff;
+  width: 40px;
+  transition: width .15s;
+  -moz-transition: width .15s; /* Firefox 4 */
+  -webkit-transition: width .15s; /* Safari 和 Chrome */
+  -o-transition: width .15s; /* Opera */
+}
+
+.form-group .navbar-search:focus {
+  width:180px;
+  transition: width .15s;
+  -moz-transition: width .15s; /* Firefox 4 */
+  -webkit-transition: width .15s; /* Safari 和 Chrome */
+  -o-transition: width .15s; /* Opera */
+}
+
+/* pages */
+
+.page-about .post-content {
+  text-align: center !important;
+}
+
+.archive-articles li {
+  list-style: none;
+} 
+
+.archive-article-title {
+  font-size: 40px;
+}
+
+.page-about .post-body {
+  padding-bottom: 0;
+  margin-bottom: 30px;
+}

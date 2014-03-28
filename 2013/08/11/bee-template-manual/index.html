@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+      <title>Bee Template Manual | QFish&#39;s Blog</title>
+      <meta charset="utf-8">
+      <meta name="author" content="QFish">
+      <meta name="description" content="QFish is not a Fish named Q ~">  
+    <meta property="og:title" content="Bee Template Manual"/>      <meta property="og:site_name" content="QFish&#39;s Blog"/>
+      <meta property="og:image" content="undefined"/>  
+      <meta name="HandheldFriendly" content="True" />
+      <meta name="MobileOptimized" content="320" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link href="http://const.qiniudn.com/assets/images/favicon.ico" rel="shortcut icon">
+      <link href="http://const.qiniudn.com/assets/css/style.css" rel="stylesheet">
+      
+      <link href="http://const.qiniudn.com/assets/css/toc.css" rel="stylesheet">
+      
+      <link rel="alternate" type="application/rss+xml" title="QFish&#39;s Blog" href="/rss/">
+
+    </head>
+    
+    
+    <body class="post-template">
+      <nav id="nav" class="navbar navbar-fixed-top header-white navbar-inverse navbar-transparent" role="navigation">
+<!-- <nav id="nav" class="navbar navbar-fixed-top header-white navbar-transparent" role="navigation"> -->
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-main">
+            <ul class="nav navbar-nav navbar-right">
+            
+              <li><a href="/">首页</a></li>
+              <li><a href="/archives">归档</a></li>
+              <li><a href="/about">关于</a></li>
+              <li>
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="navbar-form" role="search">
+              <div class="form-group">
+                <input type="search" name="q" results="0" class="form-control navbar-search">
+                <input type="hidden" name="q" value="site:http://qfi.sh">
+              </div>
+            </form>
+              </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+      <header class="blog-header header-white header-overlay align-center align-middle"  style="background-image: url(http://const.qiniudn.com/assets/images/background/welcome.jpg)" >
+    <div class="header-inner">
+        <div class="container">
+            <a class="brand light" alt="QFish" href="/" role="banner" >              <img src="http://const.qiniudn.com/assets/images/lago.48.png" alt="Blog Logo" />
+            </a>
+            <h1 class="blog-title light">
+                QFish
+            </h1>
+            <h2 class="blog-description light bordered bordered-top">
+                QFish is not a Fish named Q ~
+            </h2>
+        </div>
+    </div>
+</header>
+      <div id="main" class="content" role="main">
+        <div class="container">
+        <article id="post-bee-template-manual" class="article post article-type-post" itemscope itemprop="blogPost">
+    
+    <div class="row">
+    
+    
+        <h2 class="post-title text-center super lighter article-title" itemprop="name">
+
+  
+      Bee Template Manual
+  
+
+</h2>
+    
+    <div class="post-info text-center bordered-top col-md-2">
+        <i class="fa fa-calendar"></i>
+<a href="/2013/08/11/bee-template-manual/" class="article-date">
+  <time class="post-time" datetime="2013-08-11T04:49:10.000Z" itemprop="datePublished">8月 11 / 2013</time>
+</a>
+        
+  <i class="fa fa-tags"></i><br/>
+  <a class="article-tag-link" href="/tags/BeeFramework/">BeeFramework</a> , <a class="article-tag-link" href="/tags/ios/">ios</a>
+
+    </div>
+    <div class="post-body bordered-bottom col-md-8" itemprop="articleBody">
+        
+      
+        <p>话说搞过iOS的都知道frame是怎么回事，算坐标这事总能让你疼到极致~   </p>
+<p>即使给<code>UIView</code>扩展那么几个<code>top</code>，<code>left</code>，<code>width</code>,<code>height</code>，… 属性,你依然摆脱不了<code>view.frame = CGrectMake(x,x,x,x);</code>的折磨。</p>
+<p>你在<code>superview</code>上<code>add</code>了一些<code>subview</code>，你不告诉这些小朋友们该站在哪里，他们就全部站在教室的一个角落(origin(0,0))，并且是一个小朋友踩在另外一个小朋友上面..。</p>
+<p>于是乎，问题就来了，为什么view和他的小伙伴们不能一个挨着一个，自觉的排列呢~</p>
+<p>Bee Template 其中的一个特性解决了这问题，为什么说是其中的一个特性呢? 因为Bee Template 还解决了通过<code>XML布局(解决View层)</code>随后之而来的问题，比如如何处理控件的事件，如何给view填充数据等等。</p>
+<a id="more"></a>
+
+<h1 id="Preface">Preface</h1>
+<h2 id="Why_BeeFramework">Why BeeFramework</h2>
+<ol>
+<li><p>View</p>
+<blockquote>
+<p>Bee可以用xml进行相对布局，意味你可以像写HTML一样相对布局，但比HTML更简单</p>
+<p>Bee可以像Javascript一样获取XML一个按钮的点击事件，而你只需一行代码</p>
+<p>Bee同样可以兼容你自定义的控件</p>
+</blockquote>
+</li>
+<li><p>Model</p>
+</li>
+<li>Controller</li>
+</ol>
+<h2 id="谈谈CSS和HTML">谈谈CSS和HTML</h2>
+<p>这里简单说下，CSS和HTML</p>
+<p>HTML是一种标签语言，是XML的一个子集，是一种简单数据表示方式。与XML不同的是，它的标签能被浏览器识别，然后浏览器针对不同的标签，赋予其不同的内置的样式，当然，不同的标签的固有属性和作用也不一样。有了这些基本的标签还不够，他们只能把数据展示出来，如果没有样式，你往往看到的就是黑色的字和白色的背景，这也是为什么有的网页偶尔会出现这样，因为CSS没有加载出来. 那CSS的作用就很明显了，规定一个元素的样式. 这些样式分很多种: 布局，背景，文字，边框等等，更多请参考 <a href="http://www.w3.org/TR/CSS/" target="_blank">CSS Reference</a>. </p>
+<p>顺便说一下HTML和CSS的规范,其中有一个叫<code>语义化</code>，所谓的<code>语义化</code>，就是指每个标签的作用更贴近标签本身的所代表的含义。语义化之后会提到的就是<code>标签与样式分离</code>。这样做的目的很明显，<code>数据与展示分离</code>。所以不推荐，在一个标签内，显式的指定太多的样式，这样做的结果只有一个，不便于维护，而推荐各司其职，样式的部分还是留给CSS来做。</p>
+<h2 id="Bee_Template_原理">Bee Template 原理</h2>
+<p>Bee Template里默认的标签对应的是cocoa里的控件(当然你也可以自定义)，所以当你写了一个标签的时候，程序运行到某个Board的时候，Bee会做下面几件事情：</p>
+<ol>
+<li>在 <code>BeeUIBoard.CREATE_VIEWS</code> 时加载XML ( <code>view.FROM_RESOURCE()</code> ),这一步主要是<code>alloc,init.addSubview</code>；</li>
+<li>在 <code>BeeUIBoard.LAYOUT_VIEWS</code> 时触发自动布局( <code>view.RELAYOUT()</code> )，这一步会根据你在<code>CSS</code>或者<code>标签</code>内指定的<code>大小，位置</code>等布局属性，经过计算之后自动<code>setFrame</code>；</li>
+</ol>
+<p>当然，这些也都是可以手动调用的，只需要把自动布局关闭就行了(下面有介绍)。</p>
+<h1 id="搭建基于Bee_Template的工程">搭建基于Bee Template的工程</h1>
+<h2 id="1-_添加_BeeFramework">1. 添加 BeeFramework</h2>
+<ol>
+<li><p><a href="http://0xbee.com/download/BeeFramework%20SDK%20for%200.4.0.pkg.zip" target="_blank">Download SDK</a> (推荐)</p>
+<p> 该包为BeeFramework的SDK安装包，其中包含了Xcode的Templates，请下载后解压并安装。</p>
+</li>
+<li><p><a href="https://github.com/gavinkwoe/BeeFramework#lastest-version" target="_blank">From Git or Cocopods</a></p>
+</li>
+</ol>
+<h2 id="2-_基于SDK创建工程">2. 基于SDK创建工程</h2>
+<ol>
+<li><p>新建一个空的工程</p>
+<p> <img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_7.png" alt="new-preoject"></p>
+</li>
+<li><p>新建一个Board (这里名字为Template)，Board(ViewController)属于View，点击next，勾选<code>With XML</code>选项。</p>
+<p> <img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_8.png" alt="new-file-board">    </p>
+</li>
+<li><p>将<code>TemplateBoard</code>显示出来</p>
+<p> 在<code>AppBoard</code>的<code>ON_SIGNAL2( BeeUIBoard, signal )</code>里添加如下代码：</p>
+</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>    if ( [signal is:BeeUIBoard<span class="preprocessor">.CREATE</span>_VIEWS] )
+    {
+        TemplateBoard_iPhone * board = [TemplateBoard_iPhone board]<span class="comment">;</span>
+        board<span class="preprocessor">.view</span><span class="preprocessor">.backgroundColor</span> = [UIColor whiteColor]<span class="comment">;</span>
+        [self<span class="preprocessor">.view</span> addSubview:board<span class="preprocessor">.view</span>]<span class="comment">;</span>
+    }
+</pre></td></tr></table></figure>
+
+
+<pre><code>然后<span class="escape">`R</span>un<span class="escape">`一</span>下，如果是白色的界面，那说明这一步成功了。
+</code></pre><h2 id="3-_试着编辑一下XML">3. 试着编辑一下XML</h2>
+<p>打开<code>TemplateBoard_iPhone.xml</code>，改成下面这样，然后<code>Run</code>一下，你会看到一个黑色的小块在背景为白色的模拟器中间。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="code"><pre><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="tag">&lt;<span class="title">ui</span> <span class="attribute">namespace</span>=<span class="value">"Template_Board_iPhone"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">linear</span> <span class="attribute">orientation</span>=<span class="value">"v"</span> <span class="attribute">class</span>=<span class="value">"wrapper"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">view</span> <span class="attribute">id</span>=<span class="value">"view"</span>/&gt;</span>
+    <span class="tag">&lt;/<span class="title">linear</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+        <span class="id">#wrapper</span> <span class="rules">{
+            <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+            <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+        <span class="rule">}</span></span>
+        <span class="id">#view</span> <span class="rules">{
+            <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#333</span></span></span>;
+            <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>px</span></span>;
+            <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>px</span></span>;
+            <span class="rule"><span class="attribute">float</span>:<span class="value"> center</span></span>;
+            <span class="rule"><span class="attribute">v-float</span>:<span class="value"> center</span></span>;
+        <span class="rule">}</span></span>
+    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">ui</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+
+<h2 id="4-_如何加载布局资源">4. 如何加载布局资源</h2>
+<h3 id="4-1_自动加载">4.1 自动加载</h3>
+<p>上面的例子就是自动加载的布局资源，在<code>TemplateBoard_iPhone.m</code>里，会发现有两行宏:</p>
+<pre><code>SUPPORT_AUTOMATIC_LAYOUT( <span class="literal">YES</span> ) <span class="comment">// 支持自动布局</span>
+SUPPORT_RESOURCE_LOADING( <span class="literal">YES</span> ) <span class="comment">// 支持自动加载布局资源</span>
+</code></pre><ol>
+<li><p><code>SUPPORT_AUTOMATIC_LAYOUT</code>作用是来控制<code>BeeUIBoard</code>或者<code>BeeUICell</code>是否支持自动布局，默认是如果NO，则不支持；如果YES，该view会在创建时自动加载对应的XML。</p>
+</li>
+<li><p><code>SUPPORT_RESOURCE_LOADING</code>作用是来控制是否自动加载资源，<b class="blue">加载的资源名就是类名</b>，比如类名是<code>TemplateBoard_iPhone</code>，那Bee会加载<code>TemplateBoard_iPhone.xml</code>的资源文件。</p>
+</li>
+</ol>
+<h3 id="4-2_手动加载">4.2 手动加载</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre>// <span class="keyword">in</span> board <span class="keyword">or</span> view
+self<span class="preprocessor">.FROM</span>_RESOURCE( @”XXX<span class="preprocessor">.xml</span>”)<span class="comment">;</span>
+self<span class="preprocessor">.RELAYOUT</span>()<span class="comment">;</span>
+
+// board
+someBoard<span class="preprocessor">.FROM</span>_RESOURCE( @”YYY<span class="preprocessor">.xml</span>”)<span class="comment">;</span>
+someBoard<span class="preprocessor">.RELAYOUT</span>()<span class="comment">;</span>
+
+// view
+someView<span class="preprocessor">.FROM</span>_RESOURCE( @”YYY<span class="preprocessor">.xml</span>”)<span class="comment">;</span>
+someView<span class="preprocessor">.RELAYOUT</span>()<span class="comment">;</span>
+</pre></td></tr></table></figure>
+
+<h1 id="1-_Bee_Template_属性">1. Bee Template 属性</h1>
+<h2 id="1-1_常用通用属性">1.1 常用通用属性</h2>
+<p>下列的属性都是标签内属性，通用是指所有标签均有此属性。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>id</td>
+<td>用来唯一标识一个元素，同时也是响应事件处理默认的<code>Signal Name</code></td>
+</tr>
+<tr>
+<td>class</td>
+<td>classname</td>
+<td>规定元素的类名（classname）</td>
+</tr>
+<tr>
+<td>style</td>
+<td>style_definition</td>
+<td>规定元素的行内样式（inline style）</td>
+</tr>
+</tbody>
+</table>
+<h1 id="2-_Bee_Template_标签">2. Bee Template 标签</h1>
+<p>Bee Template的标签目前有4种: <code>文档标签</code>, <code>布局标签</code>，<code>实体标签</code>，<code>样式标签</code>。</p>
+<h2 id="2-1_文档标签">2.1 文档标签</h2>
+<h3 id="2-1-1_ui">2.1.1 ui</h3>
+<p>ui是<code>Bee Template XML</code>的最外层标签，&lt;ui&gt; 与 &lt;/ui&gt; 标签限定了文档的开始点和结束点，类似HTML里的 &lt;html&gt;.</p>
+<h2 id="2-2-_布局标签">2.2. 布局标签</h2>
+<h3 id="2-2-1_linear">2.2.1 linear</h3>
+<p>该标签是相对布局的核心元素，比HMTL的盒子模型简化了许多，CSS3的 <a href="http://www.w3.org/TR/css3-flexbox/" target="_blank">Flex-Box 草案</a>与此类似。理论上来讲，通过水平和垂直两种布局方式的组合可以满足绝大部分的布局需求，不满足的部分可以通过自定义view来处理。</p>
+<p><b class="red">linear在解析时不会在oc里生成view，它的作用就是规定一组元素之间的相对位置关系。这也就意味着，如果只写了很多linear，没有包含view，你不会看到效果，因为在程序里并没有实际view生成，同样，给 linear 设定 <code>非布局样式(如background,border等)</code> 也是不起作用的，</b></p>
+<table>
+<thead>
+<tr>
+<th>重要属性</th>
+<th>值</th>
+<th>描述    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orientation</td>
+<td>[ v \</td>
+<td>h (默认) ]</td>
+<td>表示其内部元素是何种排列，v表示垂直，h表示水平</td>
+</tr>
+</tbody>
+</table>
+<p><strong>example</strong> : </p>
+<ol>
+<li><p>水平布局 </p>
+<p> <img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_4.png" alt="example-1"></p>
+</li>
+<li><p>垂直布局</p>
+<p> 把上面的例子中<code>wrapper</code>的orientation改为“v”，效果如下：</p>
+<p> <img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_5.png" alt="example-2"></p>
+</li>
+<li><p>水平与垂直嵌套</p>
+<p> 一个水平里面嵌套两个垂直，每个垂直的各自包含两个</p>
+<p> <img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_9.png" alt="example-3"></p>
+</li>
+<li><p>各种嵌套</p>
+<p> 可以找个界面，分析结构，然后试着写一下。</p>
+<p> 如果不显示或者没有到达预期的效果，可以先检查一下<b class="red">是否给linear指定了大小</b>，请参考 <a href="#322-width-height">布局属性详解的<code>width</code>和<code>height</code></a></p>
+</li>
+</ol>
+<h2 id="2-3_实体标签">2.3 实体标签</h2>
+<h3 id="2-3-1_内置标签">2.3.1 内置标签</h3>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>对应Cocoa控件</th>
+<th>部分属性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>view</td>
+<td>默认<code>UIVIew</code></td>
+<td>type</td>
+</tr>
+<tr>
+<td>image</td>
+<td><code>UIImageView</code></td>
+<td>src </td>
+</tr>
+<tr>
+<td>input</td>
+<td><code>UITextField</code></td>
+<td></td>
+</tr>
+<tr>
+<td>label</td>
+<td><code>UILabel</code></td>
+<td></td>
+</tr>
+<tr>
+<td>button</td>
+<td><code>UIButton</code></td>
+<td></td>
+</tr>
+<tr>
+<td>scroll</td>
+<td><code>UIScrollView</code></td>
+<td></td>
+</tr>
+<tr>
+<td>slider</td>
+<td><code>UISlider</code></td>
+<td></td>
+</tr>
+<tr>
+<td>switch</td>
+<td><code>UISwitch</code></td>
+<td></td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>以上标签的可以在 0.4版 <a href="https://github.com/gavinkwoe/BeeFramework" target="_blank">BeeFramework</a> </p>
+<p><code>/framework/application/mvc/view/template/parsers/Bee_UITemplateXML.m</code> 里找到默认的对应关系</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre></td><td class="code"><pre>+ (NSMutableDictionary *)classMapping
+{
+    if ( nil == __mapping )
+    {
+        __mapping = [[NSMutableDictionary alloc] init]<span class="comment">;</span>
+        __mapping<span class="preprocessor">.APPEND</span>( @<span class="string">"view"</span>,      @<span class="string">"UIView"</span> )<span class="comment">;</span>
+        __mapping<span class="preprocessor">.APPEND</span>( @<span class="string">"image"</span>,     @<span class="string">"BeeUIImageView"</span> )<span class="comment">;</span>
+        __mapping<span class="preprocessor">.APPEND</span>( @<span class="string">"label"</span>,     @<span class="string">"BeeUILabel"</span> )<span class="comment">;</span>
+        __mapping<span class="preprocessor">.APPEND</span>( @<span class="string">"input"</span>,     @<span class="string">"BeeUITextField"</span> )<span class="comment">;</span>
+        __mapping<span class="preprocessor">.APPEND</span>( @<span class="string">"button"</span>,    @<span class="string">"BeeUIButton"</span> )<span class="comment">;</span>
+        __mapping<span class="preprocessor">.APPEND</span>( @<span class="string">"scroll"</span>,    @<span class="string">"BeeUIScrollView"</span> )<span class="comment">;</span>
+        __mapping<span class="preprocessor">.APPEND</span>( @<span class="string">"indicator"</span>, @<span class="string">"BeeUIActivityIndicatorView"</span> )<span class="comment">;</span>
+        __mapping<span class="preprocessor">.APPEND</span>( @<span class="string">"textArea"</span>,  @<span class="string">"BeeUITextView"</span> )<span class="comment">;</span>
+        __mapping<span class="preprocessor">.APPEND</span>( @<span class="string">"switch"</span>,    @<span class="string">"BeeUISwitch"</span> )<span class="comment">;</span>
+        __mapping<span class="preprocessor">.APPEND</span>( @<span class="string">"slider"</span>,    @<span class="string">"BeeUISlider"</span> )<span class="comment">;</span>
+        __mapping<span class="preprocessor">.APPEND</span>( @<span class="string">"check"</span>,     @<span class="string">"BeeUICheck"</span> )<span class="comment">;</span>
+        __mapping<span class="preprocessor">.APPEND</span>( @<span class="string">"zoom"</span>,      @<span class="string">"BeeUIZoomView"</span> )<span class="comment">;</span>
+    }
+    
+    return __mapping<span class="comment">;</span>
+}
+</pre></td></tr></table></figure>
+
+<h3 id="2-3-2_自定义标签">2.3.2 自定义标签</h3>
+<p>通过 <code>&lt;view type=&quot;CustomViewClass&quot;/&gt;</code> 可以自定义View类型。<br><code>CustomViewClass</code>是自定义的View的className，在创建View时通过<code>NSClassFromString()</code>这个函数获取到oc对应的类。<br>然后，发散一下思维，自定的这个view，也可以通过xml来写，那就是意味着可以xml的嵌套。</p>
+<h2 id="2-4_样式标签">2.4 样式标签</h2>
+<h3 id="2-4-1_style">2.4.1 style</h3>
+<p>在该标签内可以定义CSS。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>值</th>
+<th>描述    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td><code>text/css</code> or <code>text/json</code></td>
+<td>目前推荐使用<code>text/css</code>。以后也许会扩展别的方式 (less？sass?)。</td>
+</tr>
+</tbody>
+</table>
+<p>一般来讲，都是这样写</p>
+<pre><code>&lt;style type=<span class="string">"text/css"</span>&gt;
+    <span class="comment">#id /* #对应的元素的id */</span>
+    {
+        key: value; (具体参考)
+        key: value;
+        <span class="keyword">...</span>
+    }
+
+    .class /* <span class="comment">#对应的元素的class */</span>
+    {
+        key: value;
+        key: value;
+        <span class="keyword">...</span>
+    }
+&lt;/style&gt;
+</code></pre><h1 id="3-_Bee_Template_Layout">3. Bee Template Layout</h1>
+<p>Bee Template在布局</p>
+<h2 id="3-1_Some_Tips">3.1 Some Tips</h2>
+<h3 id="3-1-1_布局的基本原则">3.1.1 布局的基本原则</h3>
+<p>由于布局的灵活性，可以用不同的方式来实现同一种效果。所以，我们有一个的原则：<code>尽量少得写代码</code>。</p>
+<h3 id="3-1-2_View显示优先级">3.1.2 View显示优先级</h3>
+<p>与<code>addSubview</code>的顺序一致，最后添加的在最上面。</p>
+<h3 id="3-1-3_数值类型">3.1.3 数值类型</h3>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auto</td>
+<td>如果是<code>Linear</code>，会根据包含元素大小总和计算出实际的宽/高度。</td>
+</tr>
+<tr>
+<td>auto</td>
+<td>如果是<code>Label</code>，会根据内容的大小计算出实际的高度，实际应用时会至少指定宽/高。</td>
+</tr>
+<tr>
+<td><em>length</em></td>
+<td>单位px，于oc一致，固定值。</td>
+</tr>
+<tr>
+<td><em>%</em></td>
+<td>基于包含它的父级元素的百分比高度，父级的高度可以是auto，但确保它最终可以计算出固定的值。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-2_布局属性详解">3.2 布局属性详解</h2>
+<h3 id="3-2-1_position">3.2.1 position</h3>
+<p>下面说提到的一组元素，是指属于同一个linear的子元素的集合。</p>
+<h4 id="3-2-1-1_relative">3.2.1.1 relative</h4>
+<p>默认值，相对布局。</p>
+<p>元素位置取决于父级linear的排列方向。如果是v，那该元素位于相邻上一个元素的下方；如果是h，那该元素位于相邻上一个元素的右方。</p>
+<h4 id="3-2-1-2_absolute">3.2.1.2 absolute</h4>
+<p>绝对布局。</p>
+<p>position为该值的元素不参与同组元素布局的计算，也就意味着，它的起始点是父级元素的原点(0, 0)，与相邻元素无关，他的大小对同组元素也不产生影响。</p>
+<p>通过<code>absolute</code>，你可以实现“<a href="#3222-auto">给一组元素加背景</a>”，“元素之间重合、叠加”等等。</p>
+<p>在该属性下，通过<code>top, left</code>来控制相对于父级原点的位置，也可以用margin来控制。</p>
+<p>但是<b class="red">不推荐：用它来指定所有元素之间的位置关系，如果这样，就又回归到原始的方法。</b></p>
+<h3 id="3-2-2_width_和_height">3.2.2 width 和 height</h3>
+<p>不论是<code>linear</code>还是<code>view</code>，宽高都要指定，值就是上面表上列出的类型，可以使固定值，可以是百分比，也可以是auto。</p>
+<h4 id="3-2-2-1_auto">3.2.2.1 auto</h4>
+<ol>
+<li>当auto应用的元素是<code>linear</code>时，比如<code>height:auto</code>，它的高度是所有子元素高度的总和，这个时候就要保证子元素的高度是能确定的。</li>
+</ol>
+<ul>
+<li>下面这种情况是不对的</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>    <span class="tag">&lt;<span class="title">linear</span> <span class="attribute">h</span>=<span class="value">"auto"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">linear</span> <span class="attribute">h</span>=<span class="value">"50%"</span>&gt;</span><span class="tag">&lt;/<span class="title">linear</span>&gt;</span> // 因为父级的高度根据子元素无确定，而子元素的高度又是父级的百分比。
+    <span class="tag">&lt;/<span class="title">linear</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+<ol>
+<li>当auto应用的元素是<code>label</code>时，比如<code>width:300px; height:auto</code>, 它的高度是根据文字内容的多少计算出来的，只不过有个前提的限定是文字的宽度为300px。</li>
+</ol>
+<h4 id="3-2-2-2_auto_与_%_的混合使用">3.2.2.2 auto 与 % 的混合使用</h4>
+<ol>
+<li>上面提到的“给一组元素加背景”，就是一个二者的混合使用的例子，代码如下：</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+</pre></td><td class="code"><pre>    <span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+    <span class="tag">&lt;<span class="title">ui</span> <span class="attribute">namespace</span>=<span class="value">"TemplateBoard_iPhone"</span>&gt;</span>
+        
+        <span class="tag">&lt;<span class="title">linear</span> <span class="attribute">orientation</span>=<span class="value">"h"</span> <span class="attribute">class</span>=<span class="value">"wrapper"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">image</span> <span class="attribute">class</span>=<span class="value">"background"</span>/&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view blue"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view orange"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">linear</span>&gt;</span>
+
+        <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+            <span class="class">.background</span> <span class="rules">{
+                <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+                <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>;
+                <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>; <span class="comment">/* 表明 .background 这个元素不再参与布局计算 */</span>
+                <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#0ff</span></span></span>;
+            <span class="rule">}</span></span>
+
+            <span class="class">.wrapper</span> <span class="rules">{
+                <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">320</span>px</span></span>;
+                <span class="rule"><span class="attribute">height</span>:<span class="value"> auto</span></span>; <span class="comment">/* 这里可以是auto, 因为子元素两个 view 的高度是确定的，所以.background的高度100%最终取值和它的高度一样 */</span>
+            <span class="rule">}</span></span>
+            <span class="class">.view</span> <span class="rules">{
+                <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">10</span>px <span class="number">5</span>px</span></span>;
+                <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">150</span>px</span></span>;
+                <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>px</span></span>; <span class="comment">/* 如果是 label，高度也可以是 auto，因为最后的高度是可以根据文字的多少确定 */</span>
+            <span class="rule">}</span></span>
+            <span class="class">.blue</span> <span class="rules">{
+                <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#007DBC</span>
+            </span></span></span>}
+            <span class="class">.orange</span> <span class="rules">{
+                <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#FF5E22</span>
+            </span></span></span>}
+        </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">ui</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+<p>   <img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_1.png" alt="example-4"></p>
+<h3 id="3-2-3_float_和_v-float">3.2.3 float 和 v-float</h3>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>可能的值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>float</td>
+<td>left</td>
+<td>元素自身水平居左</td>
+</tr>
+<tr>
+<td>float</td>
+<td>center</td>
+<td>元素自身水平居中</td>
+</tr>
+<tr>
+<td>float</td>
+<td>right</td>
+<td>元素自身水平居右</td>
+</tr>
+<tr>
+<td>v-float</td>
+<td>top</td>
+<td>元素自身垂直居上</td>
+</tr>
+<tr>
+<td>v-float</td>
+<td>center</td>
+<td>元素自身垂直居中</td>
+</tr>
+<tr>
+<td>v-float</td>
+<td>bottom</td>
+<td>元素自身垂直居下</td>
+</tr>
+</tbody>
+</table>
+<p>这两个属性的作用就是<code>控制元素自身在某个方向上相对于父级元素的位置</code>，两个属性可以同时使用，也就是可以同时控制两个方向上的位置。</p>
+<p>我们一个例子来搞定，先看效果：</p>
+<p><img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_6.png" alt="example-5"></p>
+<p>代码如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+</pre></td><td class="code"><pre><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="tag">&lt;<span class="title">ui</span> <span class="attribute">namespace</span>=<span class="value">"TemplateBoard_iPhone"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">linear</span> <span class="attribute">orientation</span>=<span class="value">"v"</span> <span class="attribute">class</span>=<span class="value">"wrapper"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">linear</span> <span class="attribute">orientation</span>=<span class="value">"h"</span> <span class="attribute">class</span>=<span class="value">"h-wrapper"</span>&gt;</span> 
+            <span class="tag">&lt;<span class="title">image</span> <span class="attribute">class</span>=<span class="value">"bg gray"</span>/&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view blue fl"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span> <span class="comment">&lt;!-- fl, fc, fr 是定义的class，见style --&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view orange fc"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view green fr"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">linear</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">linear</span> <span class="attribute">orientation</span>=<span class="value">"h"</span> <span class="attribute">class</span>=<span class="value">"h-wrapper"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">image</span> <span class="attribute">class</span>=<span class="value">"bg gray"</span>/&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view blue vfl"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view orange vfc"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view green vfr"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">linear</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">linear</span> <span class="attribute">orientation</span>=<span class="value">"v"</span> <span class="attribute">class</span>=<span class="value">"v-wrapper"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">image</span> <span class="attribute">class</span>=<span class="value">"bg gray"</span>/&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view blue fl"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view orange fc"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view green fr"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">linear</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">linear</span> <span class="attribute">orientation</span>=<span class="value">"v"</span> <span class="attribute">class</span>=<span class="value">"v-wrapper"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">image</span> <span class="attribute">class</span>=<span class="value">"bg gray"</span>/&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view blue vfl"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view orange vfc"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view green vfr"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">linear</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">linear</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+        <span class="class">.fl</span> <span class="rules">{ <span class="rule"><span class="attribute">float</span>:<span class="value">left</span></span>; <span class="rule">}</span></span>
+        <span class="class">.fc</span> <span class="rules">{ <span class="rule"><span class="attribute">float</span>:<span class="value">center</span></span>; <span class="rule">}</span></span>
+        <span class="class">.fr</span> <span class="rules">{ <span class="rule"><span class="attribute">float</span>:<span class="value">right</span></span>; <span class="rule">}</span></span>
+        
+        <span class="class">.vfl</span> <span class="rules">{ <span class="rule"><span class="attribute">v-float</span>:<span class="value">top</span></span>; <span class="rule">}</span></span>
+        <span class="class">.vfc</span> <span class="rules">{ <span class="rule"><span class="attribute">v-float</span>:<span class="value">center</span></span>; <span class="rule">}</span></span>
+        <span class="class">.vfr</span> <span class="rules">{ <span class="rule"><span class="attribute">v-float</span>:<span class="value">bottom</span></span>; <span class="rule">}</span></span>
+
+        <span class="class">.view</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">30</span>px</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">30</span>px</span></span>; <span class="rule">}</span></span>
+        <span class="class">.wrapper</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>; <span class="rule">}</span></span>
+        <span class="class">.h-wrapper</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">320</span>px</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">120</span>px</span></span>; <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> <span class="number">5</span>px</span></span>; <span class="rule">}</span></span>
+        <span class="class">.v-wrapper</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">320</span>px</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">120</span>px</span></span>; <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> <span class="number">5</span>px</span></span>; <span class="rule">}</span></span>
+        
+        <span class="class">.bg</span> <span class="rules">{ <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>; <span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>; <span class="rule">}</span></span>
+
+        <span class="class">.red</span> <span class="rules">{ <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#DD1144</span> </span></span></span>}
+        <span class="class">.blue</span> <span class="rules">{ <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#007DBC</span> </span></span></span>}
+        <span class="class">.gray</span> <span class="rules">{ <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#AEAEAE</span> </span></span></span>}
+        <span class="class">.green</span> <span class="rules">{ <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#008888</span> </span></span></span>}
+        <span class="class">.orange</span> <span class="rules">{ <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#FF5E22</span> </span></span></span>}
+    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">ui</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+<h3 id="3-2-4_align_和_v-align">3.2.4 align 和 v-align</h3>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>可能的值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>align</td>
+<td>left</td>
+<td>元素包含的所有子元素 水平居左</td>
+</tr>
+<tr>
+<td>align</td>
+<td>center</td>
+<td>元素包含的所有子元素 水平居中</td>
+</tr>
+<tr>
+<td>align</td>
+<td>right</td>
+<td>元素包含的所有子元素 水平居右</td>
+</tr>
+<tr>
+<td>v-align</td>
+<td>top</td>
+<td>元素包含的所有子元素 垂直居上</td>
+</tr>
+<tr>
+<td>v-align</td>
+<td>center</td>
+<td>元素包含的所有子元素 垂直居中</td>
+</tr>
+<tr>
+<td>v-align</td>
+<td>bottom</td>
+<td>元素包含的所有子元素 垂直居下</td>
+</tr>
+</tbody>
+</table>
+<p>该属性float不一样的是，它控制不是元素自身，而是包含其中的子元素。通常这个元素是linear，因为目前只有它具有包含别的元素的能力。</p>
+<p>同样用一个例子来说一下，先看效果：</p>
+<p><img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_3.png" alt="example-6"></p>
+<p>代码如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+</pre></td><td class="code"><pre><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="tag">&lt;<span class="title">ui</span> <span class="attribute">namespace</span>=<span class="value">"TemplateBoard_iPhone"</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">linear</span> <span class="attribute">orientation</span>=<span class="value">"v"</span> <span class="attribute">class</span>=<span class="value">"wrapper"</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">linear</span> <span class="attribute">orientation</span>=<span class="value">"h"</span> <span class="attribute">class</span>=<span class="value">"h-wrapper val"</span>&gt;</span> 
+            <span class="tag">&lt;<span class="title">image</span> <span class="attribute">class</span>=<span class="value">"bg gray"</span>/&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view blue"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view orange"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view green"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">linear</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">linear</span> <span class="attribute">orientation</span>=<span class="value">"h"</span> <span class="attribute">class</span>=<span class="value">"h-wrapper vac"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">image</span> <span class="attribute">class</span>=<span class="value">"bg gray"</span>/&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view blue"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view orange"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view green"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">linear</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">linear</span> <span class="attribute">orientation</span>=<span class="value">"h"</span> <span class="attribute">class</span>=<span class="value">"h-wrapper var"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">image</span> <span class="attribute">class</span>=<span class="value">"bg gray"</span>/&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view blue"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view orange"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view green"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">linear</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">linear</span> <span class="attribute">orientation</span>=<span class="value">"v"</span> <span class="attribute">class</span>=<span class="value">"v-wrapper al"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">image</span> <span class="attribute">class</span>=<span class="value">"bg gray"</span>/&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view blue"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view orange"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view green"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">linear</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">linear</span> <span class="attribute">orientation</span>=<span class="value">"v"</span> <span class="attribute">class</span>=<span class="value">"v-wrapper ac"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">image</span> <span class="attribute">class</span>=<span class="value">"bg gray"</span>/&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view blue"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view orange"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view green"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">linear</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">linear</span> <span class="attribute">orientation</span>=<span class="value">"v"</span> <span class="attribute">class</span>=<span class="value">"v-wrapper ar"</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">image</span> <span class="attribute">class</span>=<span class="value">"bg gray"</span>/&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view blue"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view orange"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+            <span class="tag">&lt;<span class="title">view</span> <span class="attribute">class</span>=<span class="value">"view green"</span>&gt;</span><span class="tag">&lt;/<span class="title">view</span>&gt;</span>
+        <span class="tag">&lt;/<span class="title">linear</span>&gt;</span>
+    <span class="tag">&lt;/<span class="title">linear</span>&gt;</span>
+    <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css">
+
+        <span class="class">.al</span> <span class="rules">{ <span class="rule"><span class="attribute">align</span>:<span class="value">left</span></span>; <span class="rule">}</span></span>
+        <span class="class">.ac</span> <span class="rules">{ <span class="rule"><span class="attribute">align</span>:<span class="value">center</span></span>; <span class="rule">}</span></span>
+        <span class="class">.ar</span> <span class="rules">{ <span class="rule"><span class="attribute">align</span>:<span class="value">right</span></span>; <span class="rule">}</span></span>
+
+        <span class="class">.val</span> <span class="rules">{ <span class="rule"><span class="attribute">v-align</span>:<span class="value">top</span></span>; <span class="rule">}</span></span>
+        <span class="class">.vac</span> <span class="rules">{ <span class="rule"><span class="attribute">v-align</span>:<span class="value">center</span></span>; <span class="rule">}</span></span>
+        <span class="class">.var</span> <span class="rules">{ <span class="rule"><span class="attribute">v-align</span>:<span class="value">bottom</span></span>; <span class="rule">}</span></span>
+
+        <span class="class">.view</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">20</span>px</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">20</span>px</span></span>; <span class="rule">}</span></span>
+        <span class="class">.wrapper</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>; <span class="rule">}</span></span>
+        <span class="class">.h-wrapper</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">320</span>px</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">60</span>px</span></span>; <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> <span class="number">5</span>px</span></span>; <span class="rule">}</span></span>
+        <span class="class">.v-wrapper</span> <span class="rules">{ <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">320</span>px</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">60</span>px</span></span>; <span class="rule"><span class="attribute">margin-top</span>:<span class="value"> <span class="number">5</span>px</span></span>; <span class="rule">}</span></span>
+
+        <span class="class">.bg</span> <span class="rules">{ <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>; <span class="rule"><span class="attribute">top</span>:<span class="value"><span class="number">0</span></span></span>;<span class="rule"><span class="attribute">left</span>:<span class="value"><span class="number">0</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%</span></span>; <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%</span></span>; <span class="rule">}</span></span>
+
+        <span class="class">.red</span> <span class="rules">{ <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#DD1144</span> </span></span></span>}
+        <span class="class">.blue</span> <span class="rules">{ <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#007DBC</span> </span></span></span>}
+        <span class="class">.gray</span> <span class="rules">{ <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#AEAEAE</span> </span></span></span>}
+        <span class="class">.green</span> <span class="rules">{ <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#008888</span> </span></span></span>}
+        <span class="class">.orange</span> <span class="rules">{ <span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#FF5E22</span> </span></span></span>}
+    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">ui</span>&gt;</span>
+</pre></td></tr></table></figure>
+
+<h3 id="3-2-5_margin_和_padding">3.2.5 margin 和 padding</h3>
+<h4 id="3-2-5-1_margin">3.2.5.1 margin</h4>
+<p>该属性是设置一个元素的外边距。外边距是指该元素与其他元素之间的距离，包括和它相邻的元素，以及与上一级边框之间的距离。本质上是改变自身的起始位置，如果是绝对定位则不影响后接相邻元素；如果是相对定位，则会影响到后接相邻元素的起始位置。</p>
+<p><img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_2.png" alt="example-7"></p>
+<h4 id="3-2-5-1_padding">3.2.5.1 padding</h4>
+<p>该属性是设置一个元素的内边距。内边距是指该元素边框与其包含元素之间的距离。由于UIView本是不具有padding的概念，所以本质上是改变元素自身的大小，达到相同效果。</p>
+<p><img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_10.png" alt="example-8"></p>
+<h1 id="Not_the_End">Not the End</h1>
+<h2 id="Demo_Source">Demo Source</h2>
+<p>上面的例子中的XML源码可在 <a href="https://github.com/qfish/Bee-Templates-Manual" target="_blank">Example-source</a> 中找到</p>
+<h2 id="TODO">TODO</h2>
+<ul>
+<li>数据的填充</li>
+<li>Css样式详解</li>
+</ul>
+<blockquote>
+<p>我愿意假设一下: 有一天,你会爱上这种界面布局的方式。</p>
+</blockquote>
+<p style="text-align:right; color:#999;">- By QFish</p>
+
+<!-- links -->
+
+<!-- images -->
+
+
+      
+    </div>
+    
+    <div class="post-toc col-md-2">
+    <div id="toc" class="toc"></div>
+    </div>
+    
+    
+    </div>
+    
+    
+    <footer class="post-footer">
+                <div class="row">
+                    <div class="post-share text-center bordered bordered-bottom col-md-8 col-md-offset-2">
+                        <p class="light">
+                        喜欢这篇文章吗？欢迎分享到你的微博、QQ群，并关注 <a href="http://weibo.com/qfishx"><strong>我的微博</strong></a>，谢谢支持。<br/>
+                            版权：除非注明，本站文章均为原创或编译，转载请注明出处和原文链接，欢迎转载。
+                        </p>
+                        <ul class="social-icons social-mini">
+                            <li><a><i class="fa fa-weibo"></i></a></li>
+                            <li><a><i class="fa fa-facebook"></i></a></li>
+                            <li><a><i class="fa fa-google-plus"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- <div class="post-author row">
+                    <div class="col-md-2 text-center">
+                        <img src="http://const.qiniudn.com/assets/images/lago.png" itemprop="image" class="post-avatar img-circle img-responsive"/>
+                    </div>
+                    <div class="col-md-8 ">
+                        <h4 class="small-screen-center">QFish</h4>
+                        <p class="lead">QFish is not a Fish named Q ~</p>
+                    </div>
+                </div> -->
+
+            </footer>
+</article>
+<!-- post.comment -->
+
+<!-- Duoshuo Comment BEGIN -->
+<div id="comment" class="row">
+  <div class="col-md-8 col-md-offset-2" role="main">
+  <div class="ds-thread"></div>
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:"qfish"};
+  (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';
+      ds.async = false;
+      ds.src = 'http://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+  </div>
+</div>
+<!-- Duoshuo Comment END -->
+
+        </div>
+      </div>
+      <footer id="footer"  class="text-center" style="background-image: url(http://const.qiniudn.com/assets/images/background/welcome.jpg)" >
+    <div class="container">
+        <ul class="social-icons">
+          
+                <li><a target="_blank" href="http://weibo.com/qfishx"><i class="fa fa-weibo fa-x"></i></a></li>
+                <li><a target="_blank" href="http://github.com/qfish"><i class="fa fa-github fa-x"></i></a></li>
+                <li><a target="_blank" href="http://dribbble.com/qfish"><i class="fa fa-dribbble fa-x"></i></a></li>
+                <li><a target="_blank" href="mailto:QFish.cn@gmail.com"><i class="fa fa-envelope fa-x"></i></a></li>
+          </ul>
+        <p class="copy-text">
+          All content copyright
+          <a href="/" target="_blank">QFish</a> &copy; 2013 &bull; All rights reserved.
+        </p>
+    </div>
+</footer>
+      
+<script src="http://const.qiniudn.com/assets/js/toc.js"></script>
+
+<script src="http://const.qiniudn.com/assets/js/jquery/jquery.min.js"></script>
+<script src="http://const.qiniudn.com/assets/bootstrap/js/bootstrap.js"></script>
+<script src="http://const.qiniudn.com/assets/js/waypoints.min.js"></script>
+<script src="http://const.qiniudn.com/assets/js/script.js"></script>
+
+
+<style>#cnzz_stat_icon_ { display: none; }</style>
+<script type="text/javascript">
+  var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+  document.write(unescape("%3Cspan id='cnzz_stat_icon_'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D' type='text/javascript'%3E%3C/script%3E"));
+</script>
+    </body>
+</html>

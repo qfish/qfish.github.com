@@ -139,10 +139,10 @@
 <h2 id="2-_基于SDK创建工程">2. 基于SDK创建工程</h2>
 <ol>
 <li><p>新建一个空的工程</p>
-<p> <img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_7.png" alt="new-preoject"></p>
+<p> <img src="http://depot.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_7.png" alt="new-preoject"></p>
 </li>
 <li><p>新建一个Board (这里名字为Template)，Board(ViewController)属于View，点击next，勾选<code>With XML</code>选项。</p>
-<p> <img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_8.png" alt="new-file-board">    </p>
+<p> <img src="http://depot.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_8.png" alt="new-file-board">    </p>
 </li>
 <li><p>将<code>TemplateBoard</code>显示出来</p>
 <p> 在<code>AppBoard</code>的<code>ON_SIGNAL2( BeeUIBoard, signal )</code>里添加如下代码：</p>
@@ -301,15 +301,15 @@ someView<span class="preprocessor">.RELAYOUT</span>()<span class="comment">;</sp
 <p><strong>example</strong> : </p>
 <ol>
 <li><p>水平布局 </p>
-<p> <img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_4.png" alt="example-1"></p>
+<p> <img src="http://depot.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_4.png" alt="example-1"></p>
 </li>
 <li><p>垂直布局</p>
 <p> 把上面的例子中<code>wrapper</code>的orientation改为“v”，效果如下：</p>
-<p> <img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_5.png" alt="example-2"></p>
+<p> <img src="http://depot.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_5.png" alt="example-2"></p>
 </li>
 <li><p>水平与垂直嵌套</p>
 <p> 一个水平里面嵌套两个垂直，每个垂直的各自包含两个</p>
-<p> <img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_9.png" alt="example-3"></p>
+<p> <img src="http://depot.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_9.png" alt="example-3"></p>
 </li>
 <li><p>各种嵌套</p>
 <p> 可以找个界面，分析结构，然后试着写一下。</p>
@@ -597,7 +597,7 @@ someView<span class="preprocessor">.RELAYOUT</span>()<span class="comment">;</sp
     <span class="tag">&lt;/<span class="title">ui</span>&gt;</span>
 </pre></td></tr></table></figure>
 
-<p>   <img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_1.png" alt="example-4"></p>
+<p>   <img src="http://depot.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_1.png" alt="example-4"></p>
 <h3 id="3-2-3_float_和_v-float">3.2.3 float 和 v-float</h3>
 <table>
 <thead>
@@ -642,7 +642,7 @@ someView<span class="preprocessor">.RELAYOUT</span>()<span class="comment">;</sp
 </table>
 <p>这两个属性的作用就是<code>控制元素自身在某个方向上相对于父级元素的位置</code>，两个属性可以同时使用，也就是可以同时控制两个方向上的位置。</p>
 <p>我们一个例子来搞定，先看效果：</p>
-<p><img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_6.png" alt="example-5"></p>
+<p><img src="http://depot.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_6.png" alt="example-5"></p>
 <p>代码如下：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
@@ -792,7 +792,7 @@ someView<span class="preprocessor">.RELAYOUT</span>()<span class="comment">;</sp
 </table>
 <p>该属性float不一样的是，它控制不是元素自身，而是包含其中的子元素。通常这个元素是linear，因为目前只有它具有包含别的元素的能力。</p>
 <p>同样用一个例子来说一下，先看效果：</p>
-<p><img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_3.png" alt="example-6"></p>
+<p><img src="http://depot.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_3.png" alt="example-6"></p>
 <p>代码如下：</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
@@ -927,10 +927,10 @@ someView<span class="preprocessor">.RELAYOUT</span>()<span class="comment">;</sp
 <h3 id="3-2-5_margin_和_padding">3.2.5 margin 和 padding</h3>
 <h4 id="3-2-5-1_margin">3.2.5.1 margin</h4>
 <p>该属性是设置一个元素的外边距。外边距是指该元素与其他元素之间的距离，包括和它相邻的元素，以及与上一级边框之间的距离。本质上是改变自身的起始位置，如果是绝对定位则不影响后接相邻元素；如果是相对定位，则会影响到后接相邻元素的起始位置。</p>
-<p><img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_2.png" alt="example-7"></p>
+<p><img src="http://depot.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_2.png" alt="example-7"></p>
 <h4 id="3-2-5-1_padding">3.2.5.1 padding</h4>
 <p>该属性是设置一个元素的内边距。内边距是指该元素边框与其包含元素之间的距离。由于UIView本是不具有padding的概念，所以本质上是改变元素自身的大小，达到相同效果。</p>
-<p><img src="http://const.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_10.png" alt="example-8"></p>
+<p><img src="http://depot.qiniudn.com/content/images/bee-template-manual/Bee_Template_Manual_10.png" alt="example-8"></p>
 <h1 id="Not_the_End">Not the End</h1>
 <h2 id="Demo_Source">Demo Source</h2>
 <p>上面的例子中的XML源码可在 <a href="https://github.com/qfish/Bee-Templates-Manual" target="_blank">Example-source</a> 中找到</p>

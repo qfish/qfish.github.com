@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html style="height: 100%;">
 <head>
-    <title></title>
+    <title>都是好朋友，不要传播</title>
 </head>
+<link href="https://cdn.bootcss.com/materialize/1.0.0-rc.1/css/materialize.min.css" rel="stylesheet">
+<body>
 
-<body style="height:100%;">
-	<iframe id="player" width="100%" height="100%" src="" allowFullScreen="ture" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-</body>
+<div id="wrap">
+    <textarea id="textbox" placeholder="请输入视频地址，如www.iqiyi.com/v_19rrc17tj8.html" style="display: block;margin: 50px auto 0;padding:10px;width:80%;min-height: 100px;"></textarea>
+    <button id="btn" style="display: block;margin: 30px auto;">提交</button>
+</div>
+
+
 <script>
+    const oWrap = document.getElementById('wrap');
+    const oTextbox = document.getElementById('textbox');
+    const btn = document.getElementById('btn');
+    const iframe = document.getElementById('iframe');
 
-	(function () {
-		var search = location.search.substr(1);
-		var url;
-		if (search.indexOf('=') > -1) {
-			var parts = search.split('&');
-			var query = {};
-			parts.forEach(part => {
-				let kv = part.split('=');
-				query[kv[0]] = kv[1];
-			})
-			url = query.from
-		} else {
-			url = search
-		}
+    btn.addEventListener('click', ()=>{
+        if(!oTextbox.value){
+            alert('请输入视频地址，如www.iqiyi.com/v_19rrc17tj8.html');
+            return;
+        }
+        let href = "http://qfi.sh/tv/play.html?" + oTextbox.value;
 
-		var src = "http://api.xfsub.com/index.php?url=" + url;
-		var player = document.getElementById("player");
-
-		player.src = src;
-		
-	})();
+        window.open(href);
+    }, false);
 
 </script>
+</body>
 </html>

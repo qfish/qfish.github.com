@@ -11,16 +11,24 @@
 
 	(function () {
 		var search = location.search.substr(1);
-		var parts = search.split('&');
-		var query = {};
-		parts.forEach(part => {
-			let kv = part.split('=');
-			query[kv[0]] = kv[1];
-		})
-		var url = "http://api.xfsub.com/index.php?url=" + query.from;
+		var url;
+		if (search.indexOf('=') > -1) {
+			var parts = search.split('&');
+			var query = {};
+			parts.forEach(part => {
+				let kv = part.split('=');
+				query[kv[0]] = kv[1];
+			})
+			url = query.from
+		} else {
+			url = search
+		}
+
+		var src = "http://api.xfsub.com/index.php?url=" + url;
 		var player = document.getElementById("player");
 
-		player.src = url;	
+		player.src = src;
+		
 	})();
 
 </script>

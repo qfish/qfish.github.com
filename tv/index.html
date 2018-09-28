@@ -6,37 +6,37 @@
 </head>
 <link href="https://cdn.bootcss.com/materialize/1.0.0-rc.1/css/materialize.min.css" rel="stylesheet">
 <style>
-	.movie {
-		margin-right: 5px;
-		margin-top: 10px;
-	}
+    .movie {
+        margin-right: 5px;
+        margin-top: 10px;
+    }
 </style>
 <body>
 
 <div id="wrap">
-	<nav>
+    <nav>
     <div class="nav-wrapper purple lighten-1">
-      <a href="#" class="brand-logo">🍺 不要传播</a>
+      <a href="#" class="brand-logo">🍺</a>
     </div>
   </nav>
-	 <div class="row" style="margin-top: 10px;">
+     <div class="row" style="margin-top: 10px;">
 
     <form class="col s12">
       <div class="row">
         <div class="input-field col s12">
-        	<h6 for="textbox">请输入视频地址</h6>
-        	<h6 for="textbox">视频播放后可能会自动暂停，请手动点击播放</h6>
+            <h6 for="textbox">请输入视频地址</h6>
+            <h6 for="textbox">视频播放后可能会自动暂停，请手动点击播放</h6>
           <textarea id="textbox" style="margin-top: 20px; min-height: 100px; padding: 10px; font-size: 16px;" placeholder="https://www.iqiyi.com/v_19rrc17tj8.html"></textarea>
-    			<button id="btn" class="waves-effect waves-light btn purple lighten-1" style="display: block;margin: 30px auto;">提交</button>
-    			
-    			<hr style="margin-bottom: 10px;" />
-    			
-    			<button id="btn3" value="https://www.iqiyi.com/v_19rrc17tj8.html" class="waves-effect waves-light btn movie" style="display: inline-block;">一出好戏</button>
-    			<button id="btn4" value="https://www.iqiyi.com/v_19rr8u7dl4.html" class="waves-effect waves-light btn movie" style="display: inline-block;">动物世界</button>
-    			<button id="btn5" value="https://www.iqiyi.com/v_19rr82r26w.html" class="waves-effect waves-light btn movie" style="display: inline-block;">欧洲攻略</button>
-    			<button id="btn5" value="https://www.iqiyi.com/v_19rr7pi4k4.html" class="waves-effect waves-light btn movie" style="display: inline-block;">狄仁杰之四大天王</button>
-    			<button id="btn5" value="https://www.iqiyi.com/v_19rrcsuqyw.html" class="waves-effect waves-light btn movie" style="display: inline-block;">风语咒</button>
-    			
+                <button id="btn" class="waves-effect waves-light btn purple lighten-1" style="display: block;margin: 30px auto;">提交</button>
+                
+                <hr style="margin-bottom: 10px;" />
+                
+                <a target="_blank" href="/tv/play.html?https://www.iqiyi.com/v_19rrc17tj8.html" class="waves-effect waves-light btn movie" style="display: inline-block;">一出好戏</a>
+                <a target="_blank" href="/tv/play.html?https://www.iqiyi.com/v_19rr8u7dl4.html" class="waves-effect waves-light btn movie" style="display: inline-block;">动物世界</a>
+                <a target="_blank" href="/tv/play.html?https://www.iqiyi.com/v_19rr82r26w.html" class="waves-effect waves-light btn movie" style="display: inline-block;">欧洲攻略</a>
+                <a target="_blank" href="/tv/play.html?https://www.iqiyi.com/v_19rr7pi4k4.html" class="waves-effect waves-light btn movie" style="display: inline-block;">狄仁杰之四大天王</a>
+                <a target="_blank" href="/tv/play.html?https://www.iqiyi.com/v_19rrcsuqyw.html" class="waves-effect waves-light btn movie" style="display: inline-block;">风语咒</a>
+                
         </div>
       </div>
     </form>
@@ -52,7 +52,7 @@
     const iframe = document.getElementById('iframe');
 
     function openMovie(url) {
-			let href = "/tv/play.html?" + url;
+            let href = "/tv/play.html?" + url;
       window.open(href);
     }
 
@@ -65,10 +65,10 @@
     }, false);
 
     [3, 4, 5].forEach((i) => {
-    	const n = document.getElementById('btn' + i);
-    	n.addEventListener('click', (e)=>{
-    		openMovie(n.getAttribute('value'))
-    	}, false);
+        const n = document.getElementById('btn' + i);
+        n.addEventListener('click', (e)=>{
+            openMovie(n.getAttribute('value'))
+        }, false);
     })
     
 

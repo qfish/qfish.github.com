@@ -1,33 +1,76 @@
 <!DOCTYPE html>
-<html style="height: 100%;">
+<html>
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 <head>
     <title>都是好朋友，不要传播</title>
 </head>
 <link href="https://cdn.bootcss.com/materialize/1.0.0-rc.1/css/materialize.min.css" rel="stylesheet">
+<style>
+	.movie {
+		margin-right: 5px;
+		margin-top: 10px;
+	}
+</style>
 <body>
 
 <div id="wrap">
-    <textarea id="textbox" placeholder="请输入视频地址，如www.iqiyi.com/v_19rrc17tj8.html" style="display: block;margin: 50px auto 0;padding:10px;width:80%;min-height: 100px;"></textarea>
-    <button id="btn" style="display: block;margin: 30px auto;">提交</button>
+	<nav>
+    <div class="nav-wrapper purple lighten-1">
+      <a href="#" class="brand-logo">🍺 不要传播</a>
+    </div>
+  </nav>
+	 <div class="row" style="margin-top: 10px;">
+
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+        	<h6 for="textbox">请输入视频地址</h6>
+        	<h6 for="textbox">视频播放后可能会自动暂停，请手动点击播放</h6>
+          <textarea id="textbox" style="margin-top: 20px; min-height: 100px; padding: 10px; font-size: 16px;" placeholder="https://www.iqiyi.com/v_19rrc17tj8.html"></textarea>
+    			<button id="btn" class="waves-effect waves-light btn purple lighten-1" style="display: block;margin: 30px auto;">提交</button>
+    			
+    			<hr style="margin-bottom: 10px;" />
+    			
+    			<button id="btn3" value="https://www.iqiyi.com/v_19rrc17tj8.html" class="waves-effect waves-light btn movie" style="display: inline-block;">一出好戏</button>
+    			<button id="btn4" value="https://www.iqiyi.com/v_19rr8u7dl4.html" class="waves-effect waves-light btn movie" style="display: inline-block;">动物世界</button>
+    			<button id="btn5" value="https://www.iqiyi.com/v_19rr82r26w.html" class="waves-effect waves-light btn movie" style="display: inline-block;">欧洲攻略</button>
+    			<button id="btn5" value="https://www.iqiyi.com/v_19rr7pi4k4.html" class="waves-effect waves-light btn movie" style="display: inline-block;">狄仁杰之四大天王</button>
+    			<button id="btn5" value="https://www.iqiyi.com/v_19rrcsuqyw.html" class="waves-effect waves-light btn movie" style="display: inline-block;">风语咒</button>
+    			
+        </div>
+      </div>
+    </form>
+  </div>
+
 </div>
-
-
+</body>
+<script src="https://cdn.bootcss.com/materialize/1.0.0-rc.1/js/materialize.min.js"></script>
 <script>
     const oWrap = document.getElementById('wrap');
     const oTextbox = document.getElementById('textbox');
     const btn = document.getElementById('btn');
     const iframe = document.getElementById('iframe');
 
+    function openMovie(url) {
+			let href = "/tv/play.html?" + url;
+      window.open(href);
+    }
+
     btn.addEventListener('click', ()=>{
         if(!oTextbox.value){
             alert('请输入视频地址，如www.iqiyi.com/v_19rrc17tj8.html');
             return;
         }
-        let href = "http://qfi.sh/tv/play.html?" + oTextbox.value;
-
-        window.open(href);
+        openMovie(oTextbox.value)
     }, false);
 
+    [3, 4, 5].forEach((i) => {
+    	const n = document.getElementById('btn' + i);
+    	n.addEventListener('click', (e)=>{
+    		openMovie(n.getAttribute('value'))
+    	}, false);
+    })
+    
+
 </script>
-</body>
 </html>
